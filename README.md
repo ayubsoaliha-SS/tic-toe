@@ -2,7 +2,7 @@
 
 > React Tic-Tac-Toe Game
 
-The Game is live at [https://ayubsoaliha-ss.github.io/tic-toe/](https://github.com/ayubsoaliha-SS/tic-toe)
+The Game is live at   https://ayubsoaliha-ss.github.io/tic-toe/
 
 ## Features
 
