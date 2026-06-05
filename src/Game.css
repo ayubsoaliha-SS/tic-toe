@@ -96,6 +96,22 @@ ul {
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.score {
+  background-color: #a3f5f5;
+  color: #004d4d;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 .game-info {
   margin-left: 20px;
 }
@@ -127,6 +143,18 @@ ul {
   color: black; /* Makes the text black */
 }
 
+.reset-button {
+  background-color: #ee332f !important;
+  color: white !important;
+  font-weight: 800;
+  padding: 8px 16px !important;
+  margin-bottom: 15px !important;
+}
+
+.reset-button:hover {
+  background-color: #cc2a26 !important;
+}
+
 @keyframes celebrate {
   0% { transform: scale(1); }
   10%, 20% { transform: scale(0.95) rotate(-2deg); }
@@ -149,6 +177,17 @@ ul {
   animation: text-pulse 1s ease-in-out infinite;
   display: inline-block;
   transform-origin: left center;
+}
+
+@keyframes draw-shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.game.game-draw {
+  animation: draw-shake 0.4s ease-in-out;
+  box-shadow: 0 0 30px rgba(128, 128, 128, 0.4);
 }
 
 /* Mobile Responsiveness */

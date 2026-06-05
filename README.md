@@ -1,19 +1,22 @@
-# Tic-Tac-Toe
+# 🎮 React Tic-Tac-Toe
 
-> React Tic-Tac-Toe Game
+A modern, interactive, and visually stunning Tic-Tac-Toe game built with React. Features a beautiful particle background, winning square highlights, and full move history tracking.
 
-The Game is live at [https://tic-toe-beryl.vercel.app](https://tic-toe-beryl.vercel.app)
+**🌟 Live Demo:** [https://tic-toe-beryl.vercel.app](https://tic-toe-beryl.vercel.app)
 
-## Features
+## ✨ Features
 
-- Lets you play tic-tac-toe
-- Indicates when a player has won the game
-- Stores a game’s history as a game progresses
-- Allows players to review a game’s history and see previous versions of a game’s board
+- **Interactive UI:** Smooth hover and active animations on the game board.
+- **Dynamic Background:** Eye-catching floating particles (`react-tsparticles`).
+- **Winning Highlights:** The winning combination pops out and the board celebrates!
+- **Time Travel:** Stores game history, allowing you to jump back to any previous move.
+- **Responsive Design:** Plays perfectly on both desktop and mobile devices.
 
-### Usage
+## 🚀 Quick Start
 
-Install dependencies
+Follow these steps to run the app locally on your machine:
+
+### 1. Install dependencies
 
 ```bash
 npm install

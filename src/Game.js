@@ -15,11 +15,27 @@ class Game extends React.Component {
       ],
       stepNumber: 0,
       xIsNext: true,
+      xWins: 0,
+      oWins: 0,
     };
   }
 
   particlesInit = async (main) => {
     await loadFull(main);
+  };
+
+  resetGame = () => {
+    this.setState({
+      history: [
+        {
+          squares: Array(9).fill(null),
+        },
+      ],
+      stepNumber: 0,
+      xIsNext: true,
+      xWins: 0,
+      oWins: 0,
+    });
   };
 
   handleClick(i) {
@@ -30,6 +46,18 @@ class Game extends React.Component {
       return;
     }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
+
+    let xWins = this.state.xWins;
+    let oWins = this.state.oWins;
+    const winInfo = calculateWinner(squares);
+    if (winInfo) {
+      if (winInfo.winner === 'X') {
+        xWins++;
+      } else {
+        oWins++;
+      }
+    }
+
     this.setState({
       history: history.concat([
         {
@@ -38,6 +66,8 @@ class Game extends React.Component {
       ]),
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext,
+      xWins: xWins,
+      oWins: oWins,
     });
   }
   jumpTo(step) {
@@ -52,6 +82,7 @@ class Game extends React.Component {
     const winInfo = calculateWinner(current.squares);
     const winner = winInfo ? winInfo.winner : null;
     const winningLine = winInfo ? winInfo.line : [];
+    const isDraw = !winner && !current.squares.includes(null);
 
     const moves = history.map((step, move) => {
       const desc = move ? 'Go to move #' + move : 'Go to game start';
@@ -69,6 +100,8 @@ class Game extends React.Component {
     let status;
     if (winner) {
       status = 'Winner: ' + winner;
+    } else if (!current.squares.includes(null)) {
+      status = 'Draw!';
     } else {
       status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
     }
@@ -125,8 +158,12 @@ class Game extends React.Component {
     return (
       <React.Fragment>
         <Particles id="tsparticles" init={this.particlesInit} options={particleOptions} />
-        <div className={`game ${winner ? 'game-won' : ''}`}>
+        <div className={`game ${winner ? 'game-won' : isDraw ? 'game-draw' : ''}`}>
           <div className="game-board">
+            <div className="scoreboard">
+              <div className="score">X Wins: {this.state.xWins}</div>
+              <div className="score">O Wins: {this.state.oWins}</div>
+            </div>
             <Board
               squares={current.squares}
               winningLine={winningLine}
@@ -134,6 +171,9 @@ class Game extends React.Component {
             />
           </div>
           <div className="game-info">
+            <button className="reset-button" onClick={this.resetGame}>
+              Reset Game
+            </button>
             <div className={`status ${winner ? 'winner-text' : ''}`}>{status}</div>
             <ol>{moves}</ol>
           </div>
