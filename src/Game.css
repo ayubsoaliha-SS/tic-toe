@@ -153,12 +153,26 @@ ul {
 
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
+  body {
+    align-items: flex-start; /* Prevent top cutoff when scrolling */
+    padding: 40px 0; /* Add space so it isn't stuck to the top notch */
+  }
   .game {
     flex-direction: column;
     align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    max-width: 95vw;
   }
   .game-info {
     margin-left: 0;
     margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  ol, ul {
+    padding-left: 0;
+    text-align: center;
   }
 }
