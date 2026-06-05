@@ -2,7 +2,7 @@
 
 > React Tic-Tac-Toe Game
 
-The Game is live at   tic-toe-beryl.vercel.app
+The Game is live at [https://tic-toe-beryl.vercel.app](https://tic-toe-beryl.vercel.app)
 
 ## Features
 
