@@ -2,7 +2,7 @@
 
 > React Tic-Tac-Toe Game
 
-The Game is live at   https://ayubsoaliha-ss.github.io/tic-toe/
+The Game is live at   tic-toe-beryl.vercel.app
 
 ## Features
 
